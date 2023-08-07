@@ -1,0 +1,19 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore build output
+/dist
+
+# Ignore environment files
+.env
+
+# Ignore development server logs
+npm-debug.log
+pnpm-debug.log
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+
