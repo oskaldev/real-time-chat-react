@@ -1,11 +1,16 @@
 import React from 'react'
 import './App.css'
-import { Button } from '@mui/material'
+import { BrowserRouter } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import AppRouter from './components/AppRouter'
 
 
 const App = () => {
   return (
-    <Button variant="contained" color="primary">Hello world</Button>
+    <BrowserRouter>
+      <Navbar />
+      <AppRouter />
+    </BrowserRouter>
   )
 }
 
