@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import firebase from 'firebase/compat/app'
@@ -16,19 +16,19 @@ firebase.initializeApp(
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
   }
 )
-const Context = createContext(null)
+export const AuthContext = createContext(null)
 const auth = firebase.auth()
 const firestore = firebase.firestore()
 
 const root = createRoot(document.getElementById('root'))
 root.render(
-  <Context.Provider value={{
+  <AuthContext.Provider value={{
     firebase,
     firestore,
     auth
   }}>
     <App />
-  </Context.Provider>
+  </AuthContext.Provider>
 )
 const devMode = process.env.NODE_ENV === 'development'
 if (devMode && module && module.hot) {
