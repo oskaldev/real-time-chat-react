@@ -23,7 +23,7 @@ const Chat = () => {
       text: value,
       createdAt: firebase.firestore.FieldValue.serverTimestamp()
     })
-    setValue('')
+    setValue('1')
 
   }
   if (loading) {
