@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@screens/*": ["src/components/screens/*"],
+      "@common/*": ["src/components/common/*"],
+      "@constans/*": ["src/constans/*"],
+      "@firebase/*": ["src/firebase/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@providers/*": ["src/providers/*"],
+      "@routing/*": ["src/routing/*"]
+    }
+  }
+}
