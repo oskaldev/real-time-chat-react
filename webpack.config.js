@@ -28,6 +28,16 @@ module.exports = {
   },
   resolve: {
     extensions: [ '.js', '.jsx' ],
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@screens': path.resolve(__dirname, 'src/components/screens'),
+      '@common': path.resolve(__dirname, 'src/components/common'),
+      '@constans': path.resolve(__dirname, 'src/constans'),
+      '@firebase': path.resolve(__dirname, 'src/firebase'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@providers': path.resolve(__dirname, 'src/providers'),
+      '@routing': path.resolve(__dirname, 'src/routing'),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -37,6 +47,5 @@ module.exports = {
   ],
   devServer: {
     historyApiFallback: true,
-    open: true,
   }
 }

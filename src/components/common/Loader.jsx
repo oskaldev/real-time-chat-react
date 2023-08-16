@@ -1,9 +1,8 @@
 import React from 'react'
-import { Container, Grid } from '@mui/material'
 
 const Loader = () => {
   return (
-    <></>
+    <div>Loader</div>
   )
 }
 
