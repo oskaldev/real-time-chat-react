@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { createContext } from 'react';
+import { auth, firestore } from '@fire/firebase';
 
-const AuthProvider = () => {
-  return (
-    <div>AuthProvider</div>
-  )
-}
+export const AuthContext = createContext(null);
 
-export default AuthProvider
+const AuthProvider = ({ children }) => {
+  return <AuthContext.Provider value={{ auth, firestore }}>{children}</AuthContext.Provider>;
+};
+
+export default AuthProvider;
