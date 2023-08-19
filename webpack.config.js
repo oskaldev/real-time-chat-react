@@ -33,7 +33,7 @@ module.exports = {
       '@screens': path.resolve(__dirname, 'src/components/screens'),
       '@common': path.resolve(__dirname, 'src/components/common'),
       '@constans': path.resolve(__dirname, 'src/constans'),
-      '@firebase': path.resolve(__dirname, 'src/firebase'),
+      '@fire': path.resolve(__dirname, 'src/firebase'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@providers': path.resolve(__dirname, 'src/providers'),
       '@routing': path.resolve(__dirname, 'src/routing'),

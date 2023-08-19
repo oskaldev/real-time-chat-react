@@ -6,7 +6,7 @@
       "@screens/*": ["src/components/screens/*"],
       "@common/*": ["src/components/common/*"],
       "@constans/*": ["src/constans/*"],
-      "@firebase/*": ["src/firebase/*"],
+      "@fire/*": ["src/firebase/*"],
       "@hooks/*": ["src/hooks/*"],
       "@providers/*": ["src/providers/*"],
       "@routing/*": ["src/routing/*"]
