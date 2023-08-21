@@ -9,7 +9,8 @@
       "@fire/*": ["src/firebase/*"],
       "@hooks/*": ["src/hooks/*"],
       "@providers/*": ["src/providers/*"],
-      "@routing/*": ["src/routing/*"]
+      "@routing/*": ["src/routing/*"],
+      "@HOC/*": ["src/HOC/*"]
     }
   }
 }

@@ -37,6 +37,7 @@ module.exports = {
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@providers': path.resolve(__dirname, 'src/providers'),
       '@routing': path.resolve(__dirname, 'src/routing'),
+      '@HOC': path.resolve(__dirname, 'src/HOC'),
     },
   },
   plugins: [
