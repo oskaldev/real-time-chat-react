@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
+import { privateRoutes, publicRoutes } from './routes';
+import { Route } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import AuthRouteHandler from '@HOC/AuthRouteHandler';
 
 const AppRouter = () => {
-  return (
-    <div>AppRouter</div>
-  )
-}
+  const { routesToRender, fallbackRoute } = AuthRouteHandler({
+    privateRoutes,
+    publicRoutes,
+  });
 
-export default AppRouter
+  return (
+    <Routes>
+      {routesToRender.map(({ path, Component }) => (
+        <Route key={path} path={path} element={Component} />
+      ))}
+      <Route path='*' element={<Navigate to={fallbackRoute} replace />} />
+    </Routes>
+  );
+};
+
+export default AppRouter;
