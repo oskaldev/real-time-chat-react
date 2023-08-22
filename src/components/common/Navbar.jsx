@@ -1,30 +1,39 @@
-import React, { useContext } from 'react'
-import { AppBar, Button, Grid, Toolbar } from '@mui/material'
-import { NavLink } from 'react-router-dom'
-import { LOGIN_ROUTE } from '../utils/consts'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { AuthContext } from '../index'
-
-
+import { AppBar, Box, Button, Grid, Toolbar } from '@mui/material';
+import React, { useContext } from 'react';
+import { StyleMuiButton } from '../../styles';
+import { AuthContext } from '@providers/AuthProvider';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { NavLink } from 'react-router-dom';
+import { LOGIN_ROUTE } from '@constans/consts';
 
 const Navbar = () => {
-  const { auth } = useContext(AuthContext) || {}
-  const [ user ] = auth ? useAuthState(auth) : [ null ]
+  const { auth } = useContext(AuthContext) || {};
+  const [user] = auth ? useAuthState(auth) : [null];
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+    } catch (error) {
+      // Обработка ошибки, если не удалось выйти
+      console.error('Ошибка при выходе:', error);
+    }
+  };
   return (
-    <AppBar color={'secondary'} position="static">
-      <Toolbar variant='dense'>
-        <Grid container justifyContent={'flex-end'}>
-          {user ?
-            <Button onClick={() => auth.signOut()} style={{ color: 'white', borderColor: 'white', margin: '0px 3px' }} variant='outlined'>Выйти</Button>
-            :
-            <NavLink to={LOGIN_ROUTE}>
-              <Button style={{ color: 'white', borderColor: 'white', margin: '0px 3px' }} variant='outlined'>Логин</Button>
-            </NavLink>
-          }
-        </Grid>
-      </Toolbar>
-    </AppBar>
-  )
-}
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar color={'secondary'}>
+        <Toolbar variant='dense'>
+          <Grid container justifyContent={'flex-end'}>
+            {user ? (
+              <StyleMuiButton onClick={handleSignOut}>Выйти</StyleMuiButton>
+            ) : (
+              <NavLink to={LOGIN_ROUTE}>
+                <StyleMuiButton>Логин</StyleMuiButton>
+              </NavLink>
+            )}
+          </Grid>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+};
 
-export default Navbar
+export default Navbar;
