@@ -1,3 +1,5 @@
+import { GoogleAuthProvider, signInWithRedirect } from 'firebase/auth'
+
 export const handleSignOut = async (auth) => {
   try {
     await auth.signOut()
@@ -5,3 +7,9 @@ export const handleSignOut = async (auth) => {
     console.error('Ошибка при выходе:', error)
   }
 }
+
+export const loginWithGoogle = async (auth) => {
+  const provider = new GoogleAuthProvider()
+  await signInWithRedirect(auth, provider)
+}
+
