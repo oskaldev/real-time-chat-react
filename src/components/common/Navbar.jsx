@@ -1,29 +1,27 @@
 import { AppBar, Box, Button, Grid, Toolbar } from '@mui/material';
-import React, { useContext } from 'react';
+import React from 'react';
 import { StyleMuiButton } from '../../styles';
-import { AuthContext } from '@providers/AuthProvider';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
 import { LOGIN_ROUTE } from '@constans/consts';
+import { handleSignOut } from '@helpers/authHelpers';
+import useAuth from '@hooks/useAuth';
 
 const Navbar = () => {
-  const { auth } = useContext(AuthContext) || {};
+  const { auth } = useAuth() || {};
   const [user] = auth ? useAuthState(auth) : [null];
-  const handleSignOut = async () => {
-    try {
-      await auth.signOut();
-    } catch (error) {
-      // Обработка ошибки, если не удалось выйти
-      console.error('Ошибка при выходе:', error);
-    }
+
+  const handleSignOutClick = () => {
+    handleSignOut(auth);
   };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar color={'secondary'}>
         <Toolbar variant='dense'>
           <Grid container justifyContent={'flex-end'}>
             {user ? (
-              <StyleMuiButton onClick={handleSignOut}>Выйти</StyleMuiButton>
+              <StyleMuiButton onClick={handleSignOutClick}>Выйти</StyleMuiButton>
             ) : (
               <NavLink to={LOGIN_ROUTE}>
                 <StyleMuiButton>Логин</StyleMuiButton>
