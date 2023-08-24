@@ -10,7 +10,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@providers/*": ["src/providers/*"],
       "@routing/*": ["src/routing/*"],
-      "@HOC/*": ["src/HOC/*"]
+      "@HOC/*": ["src/HOC/*"],
+      "@helpers/*": ["src/helpers/*"]
     }
   }
 }
